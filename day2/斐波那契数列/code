@@ -1,0 +1,23 @@
+//////////////斐波那契数列(递归方法)/////////////////
+//f(n)=f(n-1)+f(n-2)
+//斐波那契数列1、1、2、3、5、8、13、21、34、……，即当前项为前两项之和
+//使用递归方法时，应注意当 n<=2 时，应返回1。
+
+#include<iostream>
+using namespace std;
+
+int fun(int n)
+{
+	if(n <= 2)
+		return 1;
+	return fun(n-1) + fun(n-2);
+}
+
+int main()
+{
+	int n,m;
+	cin>>n;
+	m = fun(n);
+	cout<<m<<endl;
+	return 0;
+}
