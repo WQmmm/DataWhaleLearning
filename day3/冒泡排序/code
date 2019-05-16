@@ -1,0 +1,39 @@
+////////////////冒泡排序////////////////////
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void BubbleSort(vector<int>& data)
+{
+	for(int i = 0; i < data.size()-1; i++)
+	{
+		for(int j = 0; j < data.size()-i-1; j++)
+		{
+			if(data[j] > data[j+1])
+			{
+				int temp;
+				temp = data[j+1];
+				data[j+1] = data[j];
+				data[j] = temp;
+			}
+		}
+	}
+}
+
+int main()
+{
+	vector<int> data;
+	int a[10] = {5, 1, 2, 4, 10, 7, 3, 9, 8, 6};
+	for(int i = 0; i < 10; i++)
+	{
+		data.push_back(a[i]);
+	}
+	BubbleSort(data);
+	for(int j = 0; j < data.size(); j++)
+	{
+		cout<<data[j]<<"  ";
+	}
+	cout<<endl;
+	return 0;
+}
