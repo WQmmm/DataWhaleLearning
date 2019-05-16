@@ -1,0 +1,43 @@
+//////////////（直接）插入排序//////////////
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void InsertSort(vector<int>& data)
+{
+	for(int i = 1; i < data.size(); i++)
+	{
+		int x;
+		x = data[i];
+		for(int j = 0; j < i; j++)
+		{
+			if(data[j] > x)
+			{
+				for(int k = i; k > j; k--)
+				{
+					data[k] = data[k-1]; 
+				}
+				data[j] = x;
+				break;		
+			}
+		}
+	}
+}
+
+int main()
+{
+	vector<int> data;
+	int a[10] = {5, 1, 2, 4, 10, 7, 3, 9, 8, 6};
+	for(int i = 0; i < 10; i++)
+	{
+		data.push_back(a[i]);
+	}
+	InsertSort(data);
+	for(int j = 0; j < data.size(); j++)
+	{
+		cout<<data[j]<<"  ";
+	}
+	cout<<endl;
+	return 0;
+}
