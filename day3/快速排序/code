@@ -1,0 +1,55 @@
+////////////////快速排序////////////////////
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void paritition(vector<int>& data, int s, int t, int &k)
+{
+	int i, j, x;
+	x = data[s];
+	i = s;
+	j = t;
+	do 
+	{
+		while((data[j] >= x) && (i < j))
+			j--;
+		if(i < j)
+		data[i++] = data[j];
+		while((data[i] < x) && (i < j))
+			i++;
+		if(i < j)
+			data[j--] = data[i];
+	}
+	while(i < j);
+	data[i] = x;
+	k = i;
+}
+
+void QuickSort(vector<int>& data, int i, int j)
+{
+	int k;
+	if(i < j)
+	{
+		paritition(data,i,j,k);
+		QuickSort(data,i,k-1);
+		QuickSort(data,k+1,j);
+	}
+}
+
+int main()
+{
+	vector<int> data;
+	int a[10] = {5, 1, 2, 4, 10, 7, 3, 9, 8, 6};
+	for(int i = 0; i < 10; i++)
+	{
+		data.push_back(a[i]);
+	}
+	QuickSort(data, 0, data.size()-1);
+	for(int j = 0; j < data.size(); j++)
+	{
+		cout<<data[j]<<"  ";
+	}
+	cout<<endl;
+	return 0;
+}
